@@ -1,0 +1,19 @@
+{
+    "name": "Mr-houzi\/weather",
+    "description": "A weather SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mr-houzi",
+            "email": "ghosthouzi@foxmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MrHouzi\\Weather\\": "src"
+        }
+    }
+}
