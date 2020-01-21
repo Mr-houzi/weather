@@ -17,5 +17,12 @@
         "psr-4": {
             "MrHouzi\\Weather\\": "src"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MrHouzi\\Weather\\ServiceProvider"
+            ]
+        }
     }
 }
