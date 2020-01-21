@@ -19,6 +19,11 @@ class Weather
         $this->key = $key;
     }
 
+    public function setGuzzleOptions(array $options)
+    {
+        $this->guzzleOptions = $options;
+    }
+
     public function getHttpClient()
     {
         return new Client($this->guzzleOptions);
@@ -52,10 +57,5 @@ class Weather
         } catch (\Exception $e){
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
-    }
-
-    public function setGuzzleOptions(array $options)
-    {
-        $this->guzzleOptions = $options;
     }
 }
