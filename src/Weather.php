@@ -1,8 +1,6 @@
 <?php
 
-
 namespace MrHouzi\Weather;
-
 
 use GuzzleHttp\Client;
 use MrHouzi\Weather\Exceptions\HttpException;
@@ -48,13 +46,13 @@ class Weather
             'extensions' => $type,
         ]);
 
-        try{
+        try {
             $response = $this->getHttpClient()->get($url, [
                 'query' => $query,
             ])->getBody()->getContents();
 
             return 'json' === $format ? \json_decode($response, true) : $response;
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
     }
