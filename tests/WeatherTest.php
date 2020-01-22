@@ -73,7 +73,7 @@ class WeatherTest extends TestCase
         $w->allows()->getHttpClient()->andReturn($client); // $client 为上面创建的模拟实例
 
         // 然后调用 `getWeather` 方法，并断言返回值为模拟的返回值。
-        $this->assertSame(['success' => true], $w->getWeather('深圳'));
+        $this->assertSame(["success" => true], $w->getWeather('深圳'));
 
         /**
          * xml
@@ -132,5 +132,25 @@ class WeatherTest extends TestCase
 
         // 设置参数后，timeout 为 5000
         $this->assertSame(5000, $w->getHttpClient()->getConfig('timeout'));
+    }
+
+    public function testGetLiveWeather()
+    {
+        // 将 getWeather 接口模拟为返回固定内容，以测试参数传递是否正确
+        $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
+        $w->expects()->getWeather('深圳', 'base', 'json')->andReturn(['success' => true]);
+
+        // 断言正确传参并返回
+        $this->assertSame(['success' => true], $w->getLiveWeather('深圳'));
+    }
+
+    public function testGetForecastsWeather()
+    {
+        // 将 getWeather 接口模拟为返回固定内容，以测试参数传递是否正确
+        $w = \Mockery::mock(Weather::class, ['mock-key'])->makePartial();
+        $w->expects()->getWeather('深圳', 'all', 'json')->andReturn(['success' => true]);
+
+        // 断言正确传参并返回
+        $this->assertSame(['success' => true], $w->getForecastsWeather('深圳'));
     }
 }
