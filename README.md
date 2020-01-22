@@ -3,8 +3,7 @@
 <p align="center"> A weather SDK.</p>
 
 [![Build Status](https://travis-ci.org/Mr-houzi/weather.svg?branch=master)](https://travis-ci.org/Mr-houzi/weather)
-
-[![StyleCI](https://github.styleci.io/repos/235067144/shield?branch=master)]
+![StyleCI](https://github.styleci.io/repos/235067144/shield?branch=master)
 
 ## Installing
 
